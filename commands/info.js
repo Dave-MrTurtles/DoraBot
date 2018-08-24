@@ -6,7 +6,7 @@ exports.run = (client, message) => {
     .setColor(0x11B8D6)
     .setTimestamp()
     .addField(`Creator`, `DaveK#5477 - <@165471100807938048>`)
-    .addField(`Info`, `This is Dora The Explorer. (WIP)`)
+    .addField(`Info`, `Dit is Dora The Explorer. (Development Bezig)`)
     .addField(`Guilds`, `${client.guilds.array().length}`)
     .setThumbnail(client.user.avatarURL)
   message.channel.sendEmbed(embed2).then(m => m.delete(10000));
@@ -22,6 +22,6 @@ exports.conf = {
 exports.help = {
   name: 'info',
   rank: 'Member',
-  description: '(MEMBER) - Shows information about this bot.',
+  description: '(MEMBER) - Geeft informatie over de bot.',
   usage: 'info'
 };

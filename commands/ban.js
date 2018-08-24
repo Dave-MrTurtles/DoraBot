@@ -9,27 +9,27 @@ exports.run = (client, message, args) => {
   if (message.mentions.users.size < 1) return message.channel.sendEmbed(new Discord.RichEmbed()
             .setColor(0x00E90B0B)
             .setTimestamp()
-            .addField(`Error ❌`, `Sorry, I can't ban invisible foxes. :wink:`)).then(m => m.delete(5000)).catch(console.error);
+            .addField(`Error ❌`, `Sorry, Ik kan geen onzichtbare vosjes verbannen.`)).then(m => m.delete(5000)).catch(console.error);
 
   if (!message.guild.member(user).bannable) return message.channel.sendEmbed(new Discord.RichEmbed()
             .setColor(0x00E90B0B)
             .setTimestamp()
-            .addField(`Error ❌`, `Sorry, I can't ban higher ranked people.`)).then(m => m.delete(5000));
+            .addField(`Error ❌`, `Sorry, Ik kan geen personen met hogere rangen verbannen.`)).then(m => m.delete(5000));
   message.guild.ban(user, 2);
   message.channel.sendEmbed(new Discord.RichEmbed()
             .setColor(0x0013CF0E)
             .setTimestamp()
-            .addField(`Success ✅`, `Banned ${user}!`)).catch(console.error);
+            .addField(`Success ✅`, `${user} is verbannen!`)).catch(console.error);
 
   const embed = new Discord.RichEmbed()
     .setColor(0x11B8D6)
     .setTimestamp()
-    .addField('Action', 'Ban')
-    .addField('User', `${user.username}#${user.discriminator} (${user.id})`)
+    .addField('Actie', 'Ban')
+    .addField('Gebruiker', `${user.username}#${user.discriminator} (${user.id})`)
     .addField('Moderator', `${message.author.username}#${message.author.discriminator}`)
-    .addField('Reason', reason);
-  if (!modlog) return message.channel.sendEmbed(embed);
-  return; //client.channels.get(modlog.id).sendEmbed(embed);
+    .addField('Reden', reason);
+  if (!modlog) return message.author.sendMessage(`Er is geen #logs channel.\nAls je deze commando wilt loggen moet je deze channel aanmaken:'#logs'`);
+  message.channels.get(modlog.id).sendEmbed(embed);
 };
 
 exports.conf = {
@@ -42,6 +42,6 @@ exports.conf = {
 exports.help = {
   name: 'ban',
   rank: 'Admin',
-  description: '(ADMIN) - Bans the mentioned user.',
-  usage: 'ban [mention] [reason]'
+  description: '(ADMIN) - Verbant de gementionde gebruiker.',
+  usage: 'ban [mention] [reden]'
 };

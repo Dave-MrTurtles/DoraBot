@@ -16,12 +16,13 @@ exports.run = async (client, message, args) => {
   if(!muteRole){
     message.channel.sendEmbed(new Discord.RichEmbed()
       .setColor(0x00EEFF3E)
-      .addField(`Setting up...`, `This command has never been used, setting it up.\nTry in 5 seconds`)).then(m => m.delete(15000));
+      .addField(`Installeren...`, `Deze commando is nog nooit gebruikt, Alles aan het instellen.\nProbeer het opnieuw in 5 seconden`)).then(m => m.delete(15000));
     try{
       muterole = await message.guild.createRole({
         name: "Muted",
         color: "#000000",
-        permissions:[]
+        permissions:[],
+        position: "5"
       })
       message.guild.channels.forEach(async (channel, id) => {
         await channel.overwritePermissions(muterole, {
@@ -33,33 +34,33 @@ exports.run = async (client, message, args) => {
       console.log(e.stack);
     }
   }
-  if (!reason) reason = "No reason specified.";
+  if (!reason) reason = "Geen reden ingevoerd.";
   if (message.mentions.users.size < 1) return message.channel.sendEmbed(new Discord.RichEmbed()
             .setColor(0x00E90B0B)
             .setTimestamp()
-            .addField(`Error ❌`, `Sorry, I can't mute invisible foxes. :wink:`)).then(m => m.delete(5000)).catch(console.error);
+            .addField(`Error ❌`, `Sorry, Ik kan geen onzichtbare vosjes muten.`)).then(m => m.delete(5000)).catch(console.error);
   const embed = new Discord.RichEmbed()
     .setColor(0x11B8D6)
     .setTimestamp()
-    .addField('Action', 'Mute')
-    .addField('User', `${user} (${user.id})`)
+    .addField('Actie', 'Mute')
+    .addField('Gebruiker', `${user} (${user.id})`)
     .addField('Moderator', `${message.author.username}#${message.author.discriminator}`)
-    .addField('Duration', `${time} Seconds`) 
-    .addField('Reason:', reason)
+    .addField('Tijd', `${time} Seconden`) 
+    .addField('Reden:', reason)
   if (!time) return message.channel.sendEmbed(new Discord.RichEmbed()
             .setColor(0x00E90B0B)
             .setTimestamp()
-            .addField(`Error ❌`, `You must set a duration!`)).then(m => m.delete(5000));
+            .addField(`Error ❌`, `Je moet een tijdslimiet instellen!`)).then(m => m.delete(5000));
   if (!message.guild.member(client.user).hasPermission('MANAGE_ROLES_OR_PERMISSIONS')) return message.channel.sendEmbed(new Discord.RichEmbed()
             .setColor(0x00E90B0B)
             .setTimestamp()
-            .addField(`Error ❌`, `Sorry, I don't have the permission to Manage roles.`).then(m => m.delete(5000)).catch(console.error));
+            .addField(`Error ❌`, `Sorry, Ik heb geen permissie om roles te managen.\nFix: Geef mij Manage Roles permissie`).then(m => m.delete(5000)).catch(console.error));
 
   if (message.guild.member(user).roles.has(muteRole.id)) {
     message.channel.sendEmbed(new Discord.RichEmbed()
             .setColor(0x00E90B0B)
             .setTimestamp()
-            .addField(`Error ❌`, `This user is already muted.\nTo unmute this user use: ${prefix}unmute [user]`)).then(m => m.delete(5000));
+            .addField(`Error ❌`, `Deze gebruiker is al gemute.\nOm te unmuten gebruik: ${prefix}unmute [mention]`)).then(m => m.delete(5000));
   } /*else if (!time && !reason) { 
     message.channel.sendEmbed(new Discord.RichEmbed()
             .setColor(0x0013CF0E)
@@ -99,6 +100,6 @@ exports.conf = {
 exports.help = {
   name: 'mute',
   rank: 'Moderator',
-  description: '(MOD) - Mute a user with specific duration and reason!',
-  usage: 'mute [user] [duration] [reason]'
+  description: '(MOD) - Mute een gebruiker met een specifieke tijd en reden!',
+  usage: 'mute [gebruiker] [tijd] [reden]'
 };

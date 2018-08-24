@@ -9,27 +9,27 @@ exports.run = (client, message, args) => {
   if (message.mentions.users.size < 1) return message.channel.sendEmbed(new Discord.RichEmbed()
             .setColor(0x00E90B0B)
             .setTimestamp()
-            .addField(`Error ❌`, `Sorry, I can't kick invisible foxes. :wink:`)).then(m => m.delete(5000)).catch(console.error);
+            .addField(`Error ❌`, `Sorry, Ik kan geen onzichtbare vosjes kicken`)).then(m => m.delete(5000)).catch(console.error);
 
   if (!message.guild.member(user).kickable) return message.channel.sendEmbed(new Discord.RichEmbed()
             .setColor(0x00E90B0B)
             .setTimestamp()
-            .addField(`Error ❌`, `Sorry, I can't kick higher ranked people.`)).then(m => m.delete(5000));
+            .addField(`Error ❌`, `Sorry, Ik kan geen personen met hogere rangen kicken`)).then(m => m.delete(5000));
   message.guild.member(user).kick();
   message.channel.sendEmbed(new Discord.RichEmbed()
             .setColor(0x0013CF0E)
             .setTimestamp()
-            .addField(`Success ✅`, `Kicked ${user}!`)).then(m => m.delete(5000)).catch(console.error);
+            .addField(`Success ✅`, `${user}is Gekickt!`)).then(m => m.delete(5000)).catch(console.error);
 
   const embed = new Discord.RichEmbed()
     .setColor(0x00AE86)
     .setTimestamp()
-    .addField('Action', 'kick')
-    .addField('User', `${user.username}#${user.discriminator} (${user.id})`)
+    .addField('Actie', 'kick')
+    .addField('Gebruiker', `${user.username}#${user.discriminator} (${user.id})`)
     .addField('Moderator', `${message.author.username}#${message.author.discriminator}`)
-    .addField('Reason', reason);
-  if (!modlog) return message.channel.sendEmbed(embed);
-  return;// client.channels.get(modlog.id).sendEmbed(embed);
+    .addField('Reden', reason);
+  if (!modlog) return message.author.sendMessage(`Er is geen #logs channel.\nAls je deze commando wilt loggen moet je deze channel aanmaken:'#logs'`);
+  message.channels.get(modlog.id).sendEmbed(embed);
 };
 
 exports.conf = {
@@ -42,6 +42,6 @@ exports.conf = {
 exports.help = {
   name: 'kick',
   rank: 'Moderator',
-  description: '(MOD) - Kicks the mentioned user.',
-  usage: 'kick [mention] [reason]'
+  description: '(MOD) - Kickt de gementionde gebruiker.',
+  usage: 'kick [mention] [reden]'
 };

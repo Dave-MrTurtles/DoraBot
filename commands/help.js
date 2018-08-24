@@ -9,7 +9,7 @@ exports.run = (client, message, params) => {
     message.author.sendEmbed(
       new Discord.RichEmbed()
       .setColor(0x11B8D6)
-      .addField('= Command List = ', `Use ${prefix}help <commandname> for details\n\n${client.commands.map(c => `${prefix}${c.help.name}${' '.repeat(longest - c.help.name.length)} - ${c.help.rank}`).join('\n')}`)).catch(console.error);
+      .addField('= Commando Lijst = ', `Gebruik ${prefix}help <commandonaam> voor details\n\n${client.commands.map(c => `${prefix}${c.help.name}${' '.repeat(longest - c.help.name.length)} - ${c.help.rank}`).join('\n')}`)).catch(console.error);
   } else {
     let command = params[0];
     if (client.commands.has(command)) {
@@ -17,7 +17,7 @@ exports.run = (client, message, params) => {
       message.channel.sendEmbed(
         new Discord.RichEmbed()
       .setColor(0x11B8D6)
-      .addField(`= ${command.help.name} =`, ` \n${command.help.description}\nusage - ${prefix}${command.help.usage}\n`)).then(m => m.delete(10000)).catch(console.error);
+      .addField(`= ${command.help.name} =`, ` \n${command.help.description}\nGebruik - ${prefix}${command.help.usage}\n`)).then(m => m.delete(10000)).catch(console.error);
     }
   }
 };
@@ -32,6 +32,6 @@ exports.conf = {
 exports.help = {
   name: 'help',
   rank: 'Member',
-  description: 'Displays all the available commands for your permission\n                          level.\n',
-  usage: 'help [command]'
+  description: `Geeft alle commando's weer voor jouw rang.`,
+  usage: 'help [commando]'
 };

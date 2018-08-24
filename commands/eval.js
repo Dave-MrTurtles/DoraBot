@@ -5,7 +5,7 @@ exports.run = async (client, message, args) => {
     if(message.author.id != 437170742962946050) return message.channel.sendEmbed(new Discord.RichEmbed()
           .setColor(0x00EB1A1A)
           .setTimestamp()
-          .addField(`:no_entry: No Permission`, `${message.author}, You have no permission for this command!`)).then(m => m.delete(5000)).catch(console.error);
+          .addField(`:no_entry: No Permission`, `${message.author}, Je hebt geen permissie voor deze commando!`)).then(m => m.delete(5000)).catch(console.error);
     const code = args.join(" ");
     try {
       const evaled = client.clean(await eval(code));
@@ -30,6 +30,6 @@ exports.conf = {
 exports.help = {
   name: 'eval',
   rank: 'Creator',
-  description: '(Creator) - Just not ur business',
+  description: '(Creator) - Creator only.',
   usage: 'eval [...code]'
 };
