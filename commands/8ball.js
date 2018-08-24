@@ -2,15 +2,15 @@ const Discord = require('discord.js');
 exports.run = (client, message, args) => {
     message.delete();
     var fortunes = [
-        "Yes",
-        "No",
-        "Maybe",
-        "Kys",
-        "Never!",
-        "Fuck you",
-        "Of Course!",
-        "For Sure!",
-        "Definitely NOT!"
+        "Ja",
+        "Nee",
+        "Misschien",
+        "Ooit",
+        "Nooit!",
+        "Ga weg!",
+        "Swieber niet stelen!",
+        "Zeker weten!",
+        "Sowieso nee!"
     ];
 
 
@@ -27,7 +27,7 @@ exports.run = (client, message, args) => {
         message.channel.sendEmbed(new Discord.RichEmbed()
             .setColor(0x00E90B0B)
             .setTimestamp()
-            .addField(`Error ❌`, `Sorry, I do not understand that.`)).then(m => m.delete(5000)).catch(console.error);
+            .addField(`Error ❌`, `Sorry, Dat versta ik niet.`)).then(m => m.delete(5000)).catch(console.error);
     }
 };
 
@@ -41,6 +41,6 @@ exports.conf = {
 exports.help = {
   name: '8ball',
   rank: 'Member',
-  description: '(MEMBER) - Returns messages like Yes, No, etc.',
+  description: '(MEMBER) - Praat met Dora.',
   usage: '8ball [text]'
 };
