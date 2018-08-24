@@ -1,0 +1,33 @@
+{
+  "name": "turtles-discord-bot",
+  "version": "1.0.0",
+  "description": "turtles bot",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "An Idiot's Guide",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "discord.js": "^11.2.1",
+    "moment": "^2.17.1",
+    "ms": "^0.7.2",
+    "return-deep-diff": "^0.2.7",
+    "http": "^0.0.0"
+  },
+  "engines": {
+    "node": "latest",
+    "npm": "latest"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrTurtles/turtles.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MrTurtles/turtles/issues"
+  },
+  "homepage": "https://github.com/MrTurtles/turtles#readme"
+}
