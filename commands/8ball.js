@@ -22,7 +22,7 @@ exports.run = (client, message, args) => {
            .setTimestamp()
            .setAuthor(message.author.username, message.author.avatarURL)
            .addField(`Vraag`, `${args.join(" ")}`)
-           .addField(`<:dora:482535869241229315> Antwoord`, `${fortunes[Math.floor(Math.random() * fortunes.length)]}`)
+           .addField(`Antwoord <:dora:482535869241229315>`, `${fortunes[Math.floor(Math.random() * fortunes.length)]}`)
            .setFooter("© 8Ball"));
     } else {
         message.channel.sendEmbed(new Discord.RichEmbed()
