@@ -33,7 +33,7 @@ exports.run = function(client, message, args) {
     .addField('Moderator', `${message.author.username}#${message.author.discriminator}`)
     .addField('Berichten verwijderd', messagecount);
   if (!modlog) return message.author.sendMessage(`Er is geen #logs channel.\nAls je deze commando wilt loggen moet je deze channel aanmaken:'#logs'`);
-  message.channel.get(modlog.id).sendEmbed(embed);
+  //message.channel.get(modlog.id).sendEmbed(embed);
 };
 
 exports.conf = {

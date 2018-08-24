@@ -81,7 +81,7 @@ exports.run = async (client, message, args) => {
             .setTimestamp()
             .addField(`Success ✅`, `Successfully muted **${user}** for **${time}** Seconds.\n**Reason:** ${reason}`));
       if (!modlog) return message.author.sendMessage(`Er is geen #logs channel.\nAls je deze commando wilt loggen moet je deze channel aanmaken:'#logs'`);
-      message.channel.get(modlog.id).sendEmbed(embed);
+      //message.channel.get(modlog.id).sendEmbed(embed);
       setTimeout(function() {
         message.guild.member(user).removeRole(muteRole);
       }, time*1000); 

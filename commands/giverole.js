@@ -42,7 +42,7 @@ exports.run = (client, message, args) => {
             .setTimestamp()
             .addField(`Success ✅`, `De role ${role2} is succesvol gegeven aan ${user}`)).then(m => m.delete(5000)).catch(console.error);
       if (!modlog) return message.author.sendMessage(`Er is geen #logs channel.\nAls je deze commando wilt loggen moet je deze channel aanmaken:'#logs'`);
-      message.channel.get(modlog.id).sendEmbed(embed).catch(console.error);
+      //message.channel.get(modlog.id).sendEmbed(embed).catch(console.error);
     }); 
   }
 };
