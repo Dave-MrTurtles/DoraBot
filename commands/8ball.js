@@ -2,15 +2,16 @@ const Discord = require('discord.js');
 exports.run = (client, message, args) => {
     message.delete();
     var fortunes = [
-        "Yes",
-        "No",
-        "Maybe",
-        "Kys",
-        "Never!",
-        "Fuck you",
-        "Of Course!",
-        "For Sure!",
-        "Definitely NOT!"
+        "Ja",
+        "Nee",
+        "Misschien",
+        "Ooit",
+        "Nooit!",
+        "TI-TITI-DORA",
+        "Zeker weten!",
+        "Denk het niet.",
+        "Zerker NIET!",
+        "Denk het wel."
     ];
 
 
@@ -20,14 +21,14 @@ exports.run = (client, message, args) => {
            .setColor(0x11B8D6)
            .setTimestamp()
            .setAuthor(message.author.username, message.author.avatarURL)
-           .addField(`Questioned`, `${args.join(" ")}`)
-           .addField(`🐢 Answer`, `${fortunes[Math.floor(Math.random() * fortunes.length)]}`)
+           .addField(`Vraag`, `${args.join(" ")}`)
+           .addField(`<:dora:482535869241229315> Antwoord`, `${fortunes[Math.floor(Math.random() * fortunes.length)]}`)
            .setFooter("© 8Ball"));
     } else {
         message.channel.sendEmbed(new Discord.RichEmbed()
             .setColor(0x00E90B0B)
             .setTimestamp()
-            .addField(`Error ❌`, `Sorry, I do not understand that.`)).then(m => m.delete(5000)).catch(console.error);
+            .addField(`Error ❌`, `Sorry, Dat begrijp ik niet.`)).then(m => m.delete(5000)).catch(console.error);
     }
 };
 
@@ -41,6 +42,6 @@ exports.conf = {
 exports.help = {
   name: '8ball',
   rank: 'Member',
-  description: '(MEMBER) - Returns messages like Yes, No, etc.',
+  description: '(MEMBER) - Praat met Dora.',
   usage: '8ball [text]'
 };
