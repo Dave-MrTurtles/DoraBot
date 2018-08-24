@@ -6,7 +6,7 @@ exports.run = (client, message, args) => {
     if (!question) return message.channel.sendEmbed(
       new Discord.RichEmbed()
       .setColor(0x11B8D6)
-      .addField(`Error :no_entry:`, `Missing Question!`)).then(m => m.delete(5000));
+      .addField(`Error :no_entry:`, `Voer een stelling in om op te stemmen!`)).then(m => m.delete(5000));
     message.channel.sendEmbed(
       new Discord.RichEmbed()
       .setColor(0x00AB29D4)
@@ -26,7 +26,7 @@ exports.conf = {
 exports.help = {
   name: 'strawpoll',
   rank: 'Moderator',
-  description: '(Moderator) - Makes strawpoll with the discord reactions',
-  usage: 'strawpoll [text]'
+  description: '(Moderator) - Maakt een strawpoll met de ingevoerde stelling.',
+  usage: 'strawpoll [stelling]'
 };
 

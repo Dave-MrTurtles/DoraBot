@@ -17,6 +17,6 @@ exports.conf = {
 exports.help = {
   name: 'say',
   rank: 'Owner',
-  description: '(OWNER) - Dora will say what you want.',
+  description: '(OWNER) - Dora zegt wat je wilt.',
   usage: 'say [text]'
 };

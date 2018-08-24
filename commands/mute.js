@@ -46,7 +46,7 @@ exports.run = async (client, message, args) => {
     .addField('Gebruiker', `${user} (${user.id})`)
     .addField('Moderator', `${message.author.username}#${message.author.discriminator}`)
     .addField('Tijd', `${time} Seconden`) 
-    .addField('Reden:', reason)
+    .addField('Reden', reason)
   if (!time) return message.channel.sendEmbed(new Discord.RichEmbed()
             .setColor(0x00E90B0B)
             .setTimestamp()
@@ -79,9 +79,9 @@ exports.run = async (client, message, args) => {
       message.channel.sendEmbed(new Discord.RichEmbed()
             .setColor(0x0013CF0E)
             .setTimestamp()
-            .addField(`Success ✅`, `Successfully muted **${user}** for **${time}** Seconds.\n**Reason:** ${reason}`));
+            .addField(`Success ✅`, `**${user}** Gemute voor **${time}** Seconden.\n**Reden:** ${reason}`));
       if (!modlog) return message.author.sendMessage(`Er is geen #logs channel.\nAls je deze commando wilt loggen moet je deze channel aanmaken:'#logs'`);
-      //message.channel.get(modlog.id).sendEmbed(embed);
+      message.guild.channels.get(modlog.id).sendEmbed(embed);
       setTimeout(function() {
         message.guild.member(user).removeRole(muteRole);
       }, time*1000); 

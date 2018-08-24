@@ -8,16 +8,16 @@ exports.run = (client, message, args) => {
   if (message.mentions.users.size < 1) return message.channel.sendEmbed(new Discord.RichEmbed()
             .setColor(0x00E90B0B)
             .setTimestamp()
-            .addField(`Error ❌`, `Sorry, Ik kan geen onzichtbare vosjes muten.`)).then(m => m.delete(5000)).catch(console.error);
+            .addField(`Error ❌`, `Sorry, Ik kan geen onzichtbare vosjes rollen geven.`)).then(m => m.delete(5000)).catch(console.error);
   if (role2.length < 1) return message.channel.sendEmbed(new Discord.RichEmbed()
             .setColor(0x00E90B0B)
             .setTimestamp()
-            .addField(`Error ❌`, `Je de role vergeten in te voeren!`)).then(m => m.delete(5000)).catch(console.error);
+            .addField(`Error ❌`, `Je bent de role vergeten in te voeren!`)).then(m => m.delete(5000)).catch(console.error);
   let role = message.guild.roles.find('name', role2);
   if (!role) return message.channel.sendEmbed(new Discord.RichEmbed()
             .setColor(0x00E90B0B)
             .setTimestamp()
-            .addField(`Error ❌`, `Sorry, Die role bestaat niet.`)).then(m => m.delete(5000)).catch(console.error);
+            .addField(`Error ❌`, `Sorry, De role ${role2} bestaat niet.`)).then(m => m.delete(5000)).catch(console.error);
   const embed = new Discord.RichEmbed()
     .setColor(0x00AE86)
     .setTimestamp()
@@ -29,12 +29,12 @@ exports.run = (client, message, args) => {
   if (!message.guild.member(client.user).hasPermission('MANAGE_ROLES_OR_PERMISSIONS')) return message.channel.sendEmbed(new Discord.RichEmbed()
             .setColor(0x00E90B0B)
             .setTimestamp()
-            .addField(`Error ❌`, `Sorry, Ik heb geen permissie om roles te managen.\nFix: Geef mij Manage Roles permissie`)).then(m => m.delete(5000));
+            .addField(`Error ❌`, `Sorry, Ik heb geen permissie om roles te managen.\nFix: Geef mij Manage Roles permissie.`)).then(m => m.delete(5000));
   if (message.guild.member(user).roles.has(role.id)) {
     message.channel.sendEmbed(new Discord.RichEmbed()
             .setColor(0x00E90B0B)
             .setTimestamp()
-            .addField(`Error ❌`, `${user} heeft al de role ${role2}`)).then(m => m.delete(5000)).catch(console.error);
+            .addField(`Error ❌`, `${user} heeft al de role ${role2}.`)).then(m => m.delete(5000)).catch(console.error);
   } else {
     message.guild.member(user).addRole(role).then(() => {
       message.channel.sendEmbed(new Discord.RichEmbed()
@@ -42,7 +42,7 @@ exports.run = (client, message, args) => {
             .setTimestamp()
             .addField(`Success ✅`, `De role ${role2} is succesvol gegeven aan ${user}`)).then(m => m.delete(5000)).catch(console.error);
       if (!modlog) return message.author.sendMessage(`Er is geen #logs channel.\nAls je deze commando wilt loggen moet je deze channel aanmaken:'#logs'`);
-      //message.channel.get(modlog.id).sendEmbed(embed).catch(console.error);
+      message.guild.channels.get(modlog.id).sendEmbed(embed);
     }); 
   }
 };

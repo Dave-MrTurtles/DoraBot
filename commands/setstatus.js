@@ -16,6 +16,6 @@ exports.conf = {
 exports.help = {
   name: 'setstatus',
   rank: 'Owner',
-  description: '(OWNER) - Sets the status of the bot to streaming.',
+  description: '(OWNER) - Veranderd de bot haar status naar de ingevoerde text.',
   usage: 'setstatus [message]'
 };

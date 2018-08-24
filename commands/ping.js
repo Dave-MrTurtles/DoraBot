@@ -7,7 +7,7 @@ exports.run = (client, message) => {
   const embed = new Discord.RichEmbed()
     .setColor(0x11B8D6)
     .setTimestamp()
-    .addField('Action', 'Test')
+    .addField('Actie', 'Test')
   /*message.channel.sendMessage('Ping?')
     .then(msg => {
       msg.edit(`Pong! (took: ${msg.createdTimestamp - message.createdTimestamp}ms)`).then(m => m.delete(10000));
