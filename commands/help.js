@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 //const settings = require('../settings.json');
 exports.run = (client, message, params) => {
   message.delete();
-  let prefix = ",";
+  let prefix = ";";
   if (!params[0]) {
     const commandNames = Array.from(client.commands.keys());
     const longest = commandNames.reduce((long, str) => Math.max(long, str.length), 0);
