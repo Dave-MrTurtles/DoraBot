@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 //const settings = require('../settings.json');
 exports.run = (client, message, args) => {
-  let prefix = ",";
+  let prefix = ";";
   let time = args.slice(1).join(' ').split('?');
   let reason = args.slice(2).join(' ');
   let user = message.mentions.users.first();
