@@ -7,7 +7,7 @@ exports.run = async (client, message, args) => {
       .addField(`Under Maintance :warning:`, `This command is under maintance!\nAdd the Muted role manually.`));
       return;
   */
-  let prefix = ",";
+  let prefix = ";";
   let time = args[1];
   let reason = args.slice(2).join(' ');
   let user = message.mentions.users.first();
