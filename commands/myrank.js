@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 //const settings = require('../settings.json'); 
 exports.run = (client, message) => {
-  let prefix = ",";
+  let prefix = ";";
   message.delete();
   let guild = message.guild;
     const embed45 = new Discord.RichEmbed()
