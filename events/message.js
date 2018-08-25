@@ -3,7 +3,7 @@ const Discord = require('discord.js')
 //const sales = require('../commands/salestatus.js');
 module.exports = message => {
   let client = message.client;
-  let prefix = ",";
+  let prefix = ";";
   //let staff = client.guild.roles.find('name', 'Staff');
   let user = message.author;
   //if(!staff) return; 
