@@ -9,7 +9,7 @@ module.exports = (oldMessage, newMessage) => {
     .addField('New Message', `${newMessage.content}.`);
   let actionlog = newMessage.guild.channels.find('name', 'action-log');
   if(newMessage.author.bot) return;
-  if(newMessage.content != oldMessage){
+  if(newMessage.content != oldMessage.content){
        if (!actionlog) return newMessage.author.sendMessage(`Er is geen #logs channel.\nAls je deze commando wilt loggen moet je deze channel aanmaken:'#logs'`);
        newMessage.guild.channels.get(actionlog.id).sendEmbed(embed);
    }
