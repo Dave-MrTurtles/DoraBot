@@ -5,8 +5,8 @@ module.exports = (oldMessage, newMessage) => {
     .setTimestamp()
     .setTitle('Message Edited')
     .addField('User', `${newMessage.author.tag} (@<${newMessage.author.id}>)`)
-    .addField('Old Message', `${oldMessage.content}`)
-    .addField('New Message', `${newMessage.content}`);
+    .addField('Old Message', `${oldMessage.content}.`)
+    .addField('New Message', `${newMessage.content}.`);
   let actionlog = newMessage.guild.channels.find('name', 'action-log');
   if(newMessage.author.bot) return;
   if(newMessage.content != oldMessage){
