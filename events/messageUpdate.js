@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-module.exports = (messageUpdate, oldmsg, newmsg) => {
+module.exports = (messageUpdate, oldMessage, newMessage) => {
   const embed = new Discord.RichEmbed()
     .setColor(0x11B8D6)
     .setTimestamp()
@@ -9,7 +9,7 @@ module.exports = (messageUpdate, oldmsg, newmsg) => {
     .addField('Message', messageUpdate.content);
   let actionlog = messageUpdate.guild.channels.find('name', 'action-log');
   if(messageUpdate.author.bot) return;
-  if(newmsg.content != oldmsg){
+  if(newMessage.content != oldMessage){
        if (!actionlog) return messageUpdate.author.sendMessage(`Er is geen #logs channel.\nAls je deze commando wilt loggen moet je deze channel aanmaken:'#logs'`);
        messageUpdate.guild.channels.get(actionlog.id).sendEmbed(embed);
    }
