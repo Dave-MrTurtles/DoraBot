@@ -1,30 +1,30 @@
 const Discord = require('discord.js')
-module.exports = (messageUpdate, oldMessage, newMessage) => {
+module.exports = (oldMessage, newMessage) => {
   const embed = new Discord.RichEmbed()
     .setColor(0x11B8D6)
     .setTimestamp()
     .setTitle('Message Edited')
-    .addField('User', `${messageUpdate.author.tag} (@<${messageUpdate.author.id}>)`)
-    .addField('Message', messageUpdate.content)
-    .addField('Message', messageUpdate.content);
-  let actionlog = messageUpdate.guild.channels.find('name', 'action-log');
-  if(messageUpdate.author.bot) return;
+    .addField('User', `${newMessage.author.tag} (@<${newMessage.author.id}>)`)
+    .addField('Old Message', oldMessage.content)
+    .addField('New Message', newMessage.content);
+  let actionlog = newMessage.guild.channels.find('name', 'action-log');
+  if(newMessage.author.bot) return;
   if(newMessage.content != oldMessage){
-       if (!actionlog) return messageUpdate.author.sendMessage(`Er is geen #logs channel.\nAls je deze commando wilt loggen moet je deze channel aanmaken:'#logs'`);
-       messageUpdate.guild.channels.get(actionlog.id).sendEmbed(embed);
+       if (!actionlog) return newMessage.author.sendMessage(`Er is geen #logs channel.\nAls je deze commando wilt loggen moet je deze channel aanmaken:'#logs'`);
+       newMessage.guild.channels.get(actionlog.id).sendEmbed(embed);
    }
-  console.log(messageUpdate.content)
-  //messageUpdate.channel.send(`The message : "${messageUpdate.content}" by ${messageUpdate.author.tag} was deleted.`)
+  console.log(newMessage.content)
+  //newMessage.channel.send(`The message : "${oldMessage.content}" by ${newMessage.author.tag} was edited to ${newMessage.content}.`)
 
   /*const embed = new Discord.RichEmbed()
     .setColor(0x11B8D6)
     .setTimestamp()
     .setTitle('Message Edited')
-    .addField('User', `${messageUpdate.author.tag} (@<${messageUpdate.author.id}>)`)
-    .addField('Message', messageUpdate.content)
-    .addField('Message', messageUpdate.content);
+    .addField('User', `${newMessage.author.tag} (@<${newMessage.author.id}>)`)
+    .addField('Message', oldMessage.content)
+    .addField('Message', newMessage.content);
 
-  if (!actionlog) return messageUpdate.author.sendMessage(`Er is geen #logs channel.\nAls je deze commando wilt loggen moet je deze channel aanmaken:'#logs'`);
-  messageUpdate.guild.channels.get(actionlog.id).sendEmbed(embed);*/
+  if (!actionlog) return newMessage.author.sendMessage(`Er is geen #logs channel.\nAls je deze commando wilt loggen moet je deze channel aanmaken:'#logs'`);
+  newMessage.guild.channels.get(actionlog.id).sendEmbed(embed);*/
 
 };
