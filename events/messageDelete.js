@@ -10,7 +10,7 @@ module.exports = messageDelete => {
     .setColor(0x11B8D6)
     .setTimestamp()
     .setTitle('Message Deleted')
-    .addField('User', `${messageDelete.author.tag} (@<${user.id}>)`)
+    .addField('User', `${messageDelete.author.tag} (@<${messageDelete.author.id}>)`)
     .addField('Message', messageDelete.content);
 
   if (!actionlog) return message.author.sendMessage(`Er is geen #logs channel.\nAls je deze commando wilt loggen moet je deze channel aanmaken:'#logs'`);
