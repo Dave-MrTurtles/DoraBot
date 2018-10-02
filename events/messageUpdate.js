@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-module.exports = "messageUpdate", (oldmsg, newmsg) => {
+module.exports = (messageUpdate, oldmsg, newmsg) => {
   const embed = new Discord.RichEmbed()
     .setColor(0x11B8D6)
     .setTimestamp()
