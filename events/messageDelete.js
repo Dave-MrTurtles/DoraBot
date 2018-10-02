@@ -13,7 +13,7 @@ module.exports = messageDelete => {
     .addField('User', `${messageDelete.author.tag} (@<${messageDelete.author.id}>)`)
     .addField('Message', messageDelete.content);
 
-  if (!actionlog) return message.author.sendMessage(`Er is geen #logs channel.\nAls je deze commando wilt loggen moet je deze channel aanmaken:'#logs'`);
-  message.guild.channels.get(actionlog.id).sendEmbed(embed);
+  if (!actionlog) return messageDelete.author.sendMessage(`Er is geen #logs channel.\nAls je deze commando wilt loggen moet je deze channel aanmaken:'#logs'`);
+  messageDelete.guild.channels.get(actionlog.id).sendEmbed(embed);
 
 };
