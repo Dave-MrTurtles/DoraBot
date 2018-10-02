@@ -13,7 +13,7 @@ module.exports = (oldMessage, newMessage) => {
        if (!actionlog) return newMessage.author.sendMessage(`Er is geen #logs channel.\nAls je deze commando wilt loggen moet je deze channel aanmaken:'#logs'`);
        newMessage.guild.channels.get(actionlog.id).sendEmbed(embed);
    }
-  console.log(newMessage.content)
+  //console.log(newMessage.content)
   //newMessage.channel.send(`The message : "${oldMessage.content}" by ${newMessage.author.tag} was edited to ${newMessage.content}.`)
 
   /*const embed = new Discord.RichEmbed()
