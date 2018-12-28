@@ -51,6 +51,10 @@ exports.run = async (client, message, args) => {
             .setColor(0x00E90B0B)
             .setTimestamp()
             .addField(`Error ❌`, `Je moet een tijdslimiet instellen!`)).then(m => m.delete(5000));
+  if (isNaN(time)) return message.channel.sendEmbed(new Discord.RichEmbed()
+            .setColor(0x00E90B0B)
+            .setTimestamp()
+            .addField(`Error ❌`, `Je moet een tijdslimiet instellen!`)).then(m => m.delete(5000));
   if (!message.guild.member(client.user).hasPermission('MANAGE_ROLES_OR_PERMISSIONS')) return message.channel.sendEmbed(new Discord.RichEmbed()
             .setColor(0x00E90B0B)
             .setTimestamp()
