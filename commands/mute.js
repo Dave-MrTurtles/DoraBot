@@ -8,7 +8,7 @@ exports.run = async (client, message, args) => {
       return;
   */
   let prefix = ";";
-  let time = args[1];
+  let time = parseInt(args[1]);
   let reason = args.slice(2).join(' ');
   let user = message.mentions.users.first();
   let modlog = message.guild.channels.find('name', 'logs');
